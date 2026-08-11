@@ -1,0 +1,19 @@
+9. Clean up
+To avoid ongoing charges to your Google Cloud billing account, delete the deployed Cloud Run service and the custom service account.
+
+Delete the Cloud Run service:
+
+
+gcloud run services delete coffee-barista --region $REGION --quiet
+Delete the custom service account:
+
+
+gcloud iam service-accounts delete barista-agent-sa@$PROJECT_ID.iam.gserviceaccount.com --quiet
+(Optional) Delete the Firestore database (if created):
+
+
+gcloud firestore databases delete --database="coffee-menu" --quiet
+Optional step: Delete the entire project. ⚠️ONLY do this if you created a dedicated project for this lab
+
+
+gcloud projects delete $PROJECT_ID
